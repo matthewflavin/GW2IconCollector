@@ -156,12 +156,16 @@ for item in items:
                 print("Full Directory: " + full_directory)
                 print("Sub Directory: " + directory)
 
+                # Check if icon already seen
                 if icon_url in icon_set:
                     print(icon_url + " already exists.")
                     pass
 
                 else:
+                    # Get .png and place it in directory
                     urllib.request.urlretrieve(icon_url, input_directory + directory + item_name + ".png")
+
+                    # Add API icon renderer URL to the set of seen URLs, such that there are no repeats
                     icon_set.add(icon_url)
 
                 print("\n \n")
